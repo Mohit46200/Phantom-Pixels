@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { users } from "../data/mockData"
+import { users, studentUsers } from "../data/mockData"
 import slietLogo from "../photos/logo.png"
 import slietCampus from "../photos/sliet.png"
 
@@ -16,20 +16,23 @@ function Login({ onLogin }) {
     setError("")
   }
 
+  const accounts = loginType === "warden" ? users : studentUsers
+  const demo = accounts[0]
+
   function fillDemoLogin() {
-    setUsername(users[0].username)
-    setPassword(users[0].password)
+    setUsername(demo.username)
+    setPassword(demo.password)
     setError("")
   }
 
   function handleSubmit(e) {
     e.preventDefault()
 
-    const found = users.find((u) => u.username === username && u.password === password)
+    const found = accounts.find((u) => u.username === username && u.password === password)
     if (found) {
       onLogin({ name: found.name, role: found.role })
     } else {
-      setError("Wrong username or password. Try admin / Sliet@Admin#2026.")
+      setError(`Wrong username or password. Try ${demo.username} / ${demo.password}.`)
     }
   }
 
@@ -60,42 +63,29 @@ function Login({ onLogin }) {
             </button>
           </div>
 
-          {loginType === "warden" ? (
-            <>
-              {error && <div className="alert alert-error">{error}</div>}
+          {error && <div className="alert alert-error">{error}</div>}
 
-              <label>
-                Username
-                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="e.g. admin" />
-              </label>
+          <label>
+            Username
+            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder={`e.g. ${demo.username}`} />
+          </label>
 
-              <label>
-                Password
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter password" />
-              </label>
+          <label>
+            Password
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter password" />
+          </label>
 
-              <button type="submit" className="btn btn-primary btn-block">
-                Login
-              </button>
+          <button type="submit" className="btn btn-primary btn-block">
+            Login
+          </button>
 
-              <div className="demo-box">
-                <strong>Demo login</strong>
-                <span>Username: admin &nbsp;|&nbsp; Password: Sliet@Admin#2026</span>
-                <button type="button" className="btn btn-light btn-sm demo-fill" onClick={fillDemoLogin}>
-                  Fill demo login
-                </button>
-              </div>
-            </>
-          ) : (
-            <>
-              <p className="muted student-note">
-                Students do not need a password. Continue to request a hostel room or raise a complaint.
-              </p>
-              <button type="button" className="btn btn-primary btn-block" onClick={() => onLogin({ name: "Student", role: "Student" })}>
-                Continue as Student
-              </button>
-            </>
-          )}
+          <div className="demo-box">
+            <strong>Demo login</strong>
+            <span>Username: {demo.username} &nbsp;|&nbsp; Password: {demo.password}</span>
+            <button type="button" className="btn btn-light btn-sm demo-fill" onClick={fillDemoLogin}>
+              Fill demo login
+            </button>
+          </div>
         </form>
       </div>
     </div>

@@ -3,6 +3,10 @@ export const users = [
   { username: "warden", password: "Sliet@Warden#2026", name: "Sunita Rao", role: "Assistant Warden" },
 ]
 
+export const studentUsers = [
+  { username: "student", password: "Sliet@Student#2026", name: "Aarav Sharma", role: "Student" },
+]
+
 export const initialStudents = [
   { id: 1, name: "Aarav Sharma", rollNo: "254064001", course: "Computer Science", year: "3rd", phone: "9876543210", room: "101", feeStatus: "Paid" },
   { id: 2, name: "Rohan Verma", rollNo: "254074001", course: "Mechanical", year: "2nd", phone: "9812345678", room: "101", feeStatus: "Pending" },
