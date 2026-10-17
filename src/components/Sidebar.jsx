@@ -1,4 +1,4 @@
-import slietLogo from "../photos/logo.png"
+import slietLogo from "../photos/logo.webp"
 
 const menuItems = [
   { key: "dashboard", label: "Dashboard", icon: "🏠" },
@@ -13,7 +13,7 @@ function Sidebar({ current, onNavigate, onLogout, isOpen }) {
   return (
     <aside className={isOpen ? "sidebar open" : "sidebar"}>
       <div className="brand">
-        <img className="brand-logo" src={slietLogo} alt="SLIET Longowal logo" />
+        <img className="brand-logo" src={slietLogo} alt="SLIET Longowal logo" width="64" height="64" decoding="async" />
         <div>
           <h2>SLIET</h2>
           <span>Hostel Management</span>

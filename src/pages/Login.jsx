@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { users, studentUsers } from "../data/mockData"
-import slietLogo from "../photos/logo.png"
-import slietCampus from "../photos/sliet.png"
+import slietLogo from "../photos/logo.webp"
+import slietCampus from "../photos/sliet.webp"
 
 function Login({ onLogin }) {
   const [loginType, setLoginType] = useState("warden")
@@ -40,8 +40,8 @@ function Login({ onLogin }) {
     <div className="login-page">
       <div className="login-card">
         <div className="login-side">
-          <img className="login-campus" src={slietCampus} alt="SLIET Longowal campus" />
-          <img className="brand-logo big" src={slietLogo} alt="SLIET Longowal logo" />
+          <img className="login-campus" src={slietCampus} alt="SLIET Longowal campus" width="1000" height="446" fetchPriority="high" decoding="async" />
+          <img className="brand-logo big" src={slietLogo} alt="SLIET Longowal logo" width="64" height="64" decoding="async" />
           <h1>SLIET Hostel</h1>
           <p>Manage students, rooms, complaints and the mess menu - all in one place.</p>
           <ul>

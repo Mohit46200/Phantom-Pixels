@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { formatDate, getToday, toClassName } from "../utils"
-import slietLogo from "../photos/logo.png"
+import slietLogo from "../photos/logo.webp"
 
 function StudentPortal({ bookings, setBookings, complaints, setComplaints, announcements, onLogout }) {
   const [tab, setTab] = useState("booking")
@@ -70,7 +70,7 @@ function StudentPortal({ bookings, setBookings, complaints, setComplaints, annou
     <div className="student-page">
       <header className="student-header">
         <div className="brand">
-          <img className="brand-logo" src={slietLogo} alt="SLIET Longowal logo" />
+          <img className="brand-logo" src={slietLogo} alt="SLIET Longowal logo" width="64" height="64" decoding="async" />
           <div>
             <h2>SLIET Hostel</h2>
             <span>Student Section</span>

@@ -181,7 +181,7 @@ textarea { resize: vertical; }
 }
 
 .login-side h1 { font-size: 28px; margin: 18px 0 10px; }
-.login-campus { width: 100%; border-radius: 12px; margin-bottom: 20px; }
+.login-campus { width: 100%; height: auto; aspect-ratio: 1000 / 446; object-fit: cover; background: #2a3a40; border-radius: 12px; margin-bottom: 20px; }
 .login-side p { color: #b9c7cd; margin-bottom: 22px; }
 .login-side ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .login-side li { color: #dce5e8; padding-left: 24px; position: relative; }
